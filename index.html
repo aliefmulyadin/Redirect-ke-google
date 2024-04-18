@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pindah Halaman</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .redirect-link {
+            color: #428bca;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .countdown {
+            font-size: 1.5em;
+            color: #ff6347;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alamat Website Telah Diubah</h1>
+        <p>Mohon maaf, Website yang Anda cari telah dipindahkan ke alamat lain.</p>
+        <p>Halaman akan diarahkan secara otomatis dalam <span id="countdown" class="countdown">10</span> detik.</p>
+        <p>Jika tidak diarahkan secara otomatis, silakan klik <a href="http://google.com/" class="redirect-link">di sini</a>.</p>
+    </div>
+
+    <script>
+        let countdown = 10; // Set durasi countdown dalam detik
+        document.getElementById('countdown').textContent = countdown;
+
+        let countdownInterval = setInterval(function() {
+            countdown--;
+            document.getElementById('countdown').textContent = countdown;
+
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = "http://google.com/";
+            }
+        }, 1000); // Perbarui setiap 1 detik
+    </script>
+</body>
+</html>
